@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
+<!--<div style="background-image: url(img/login_back.jpg)">-->
 <div class="login-box">
   <div class="login-logo">
-    <a href="/"><b>My</b>BLOG</a>
+    <a href="/"><b>ESPACE</b> ADMIN</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -55,5 +55,4 @@
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
-
 @endsection

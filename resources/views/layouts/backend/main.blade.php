@@ -42,9 +42,9 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.6
+      <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2021 <a href="http://almsaeedstudio.com">UNFDAO</a>.</strong> Tous droits réservés.
     reserved.
   </footer>
 
