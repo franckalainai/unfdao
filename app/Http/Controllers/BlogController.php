@@ -24,6 +24,28 @@ class BlogController extends Controller
         return view("blog.index", compact('posts'));
     }
 
+    public function archives(Post $post)
+    {
+        $posts = Post::with('author', 'tags', 'category', 'comments')
+                    ->latestFirst()
+                    ->published()
+                    ->filter(request()->only(['term', 'year', 'month']))
+                    ->simplePaginate($this->limit);
+
+        return view("blog.archives", compact('posts'));
+    }
+
+    public function search()
+    {
+        $posts = Post::with('author', 'tags', 'category', 'comments')
+                    ->latestFirst()
+                    ->published()
+                    ->filter(request()->only(['term', 'year', 'month']))
+                    ->simplePaginate($this->limit);
+
+        return view("blog.search", compact('posts'));
+    }
+
     public function category(Category $category)
     {
         $categoryName = $category->title;
@@ -65,12 +87,18 @@ class BlogController extends Controller
 
     public function show(Post $post)
     {
+        $related= Post::where('category_id', '=', $post->category->id)
+            ->where('id', '!=', $post->id)
+            //->paginate(3)
+            ->simplePaginate(3);
+            //->get();
         $post->increment('view_count');
 
         $postComments = $post->comments()->simplePaginate(3);
+        
 
-        $archives = Post::archives();
+        //$archives = Post::archives();
 
-        return view("blog.show", compact('post', 'postComments'))->with('archives', $archives);
+        return view("blog.show", compact('post', 'postComments', 'related'));
     }
 }

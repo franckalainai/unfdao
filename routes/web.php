@@ -5,6 +5,16 @@ Route::get('/', [
     'as'   => 'blog'
 ]);
 
+Route::get('/search', [
+    'uses' => 'BlogController@search',
+    'as'   => 'search'
+]);
+
+Route::get('/archives', [
+    'uses' => 'BlogController@archives',
+    'as'   => 'archives'
+]);
+
 Route::get('/blog/{post}', [
     'uses' => 'BlogController@show',
     'as'   => 'blog.show'
@@ -29,6 +39,10 @@ Route::get('/tag/{tag}', [
     'uses' => 'BlogController@tag',
     'as'   => 'tag'
 ]);
+
+Route::post('subscribe',
+['uses' => 'NewsletterController@subscribe',
+'as' => 'subscribe']);
 
 Route::auth();
 

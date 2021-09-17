@@ -544,10 +544,18 @@
                     </div>
                     <div class="col-xl-8">
                         <div class="newsletter-one__right">
-                            <form action="#" class="newsletter-one__subscribe-form">
+                            <form method="post" action="{{route('subscribe')}}" class="newsletter-one__subscribe-form">
+                                {{ csrf_field() }}
                                 <div class="newsletter-one__subscribe-input-box">
                                     <input type="email" name="email" placeholder="Votre adresse mail">
+                                    
                                     <button type="submit" class="button">Souscrivez</button>
+                                    
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </form>
                         </div>

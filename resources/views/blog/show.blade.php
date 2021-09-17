@@ -46,59 +46,40 @@ Page Header End-->
                 <div class="sidebar">
                     <div class="sidebar__single sidebar__search">
                        <h3 class="sidebar__title clr-white">Search</h3>
-                        <form action="#" class="sidebar__search-form">
-                            <input type="search" placeholder="Search">
+                        <form action="{{ route('search') }}" class="sidebar__search-form">
+                            <input type="search" value="{{ request('term') }}" name="term" placeholder="Recherche">
                             <button type="submit"><i class="icon-magnifying-glass"></i></button>
                         </form>
                     </div>
                     <div class="sidebar__single sidebar__post">
-                        <h3 class="sidebar__title">Recent News</h3>
-                        <ul class="sidebar__post-list list-unstyled">
+                        <h3 class="sidebar__title">Articles connexes</h3>
+                        <ul class="sidebar__post-list list-unstyled"> 
+                            @foreach ($related as $post)
                             <li>
                                 <div class="sidebar__post-image">
-                                    <img src="assets/images/blog/lp-1-1.jpg" alt="">
+                                    @if ($post->image_url)
+                                    <img src="{{ $post->image_url }}" alt="{{ $post->title }}">   
+                                    @endif
                                 </div>
-                                <div class="sidebar__post-content">
-                                    <h3>
-                                        <a href="#" class="sidebar__post-content_meta"><i class="far fa-comments"></i>2 Comments</a>
-                                        <a href="news-details.html">Help Children Rise out of Poverty</a>
-                                    </h3>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="sidebar__post-image">
-                                    <img src="assets/images/blog/lp-1-2.jpg" alt="">
-                                </div>
-                                <div class="sidebar__post-content">
-                                    <h3>
-                                        <a href="#" class="sidebar__post-content_meta"><i class="far fa-comments"></i>2 Comments</a>
-                                        <a href="news-details.html">Help Children Rise out of Poverty</a>
-                                    </h3>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="sidebar__post-image">
-                                    <img src="assets/images/blog/lp-1-3.jpg" alt="">
-                                </div>
-                                <div class="sidebar__post-content">
-                                    <h3>
-                                        <a href="#" class="sidebar__post-content_meta"><i class="far fa-comments"></i>2 Comments</a>
-                                        <a href="news-details.html">Help Children Rise out of Poverty</a>
-                                    </h3>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="sidebar__single sidebar__category">
-                        <h3 class="sidebar__title">Archives</h3>
-                        <ul class="sidebar__category-list list-unstyled">
-                            @foreach($archives as $archive)
 
-                            <li><a href="{{ route('blog', ['month' => $archive->month, 'year' => $archive->year]) }}">{{ $archive->post_count }} Article(s) - {{ month_name($archive->month) . " " . $archive->year }} <span class="fa fa-angle-right"></span></a></li>
+                                <div class="sidebar__post-content">
+                                    <h3>
+                                        <a href="#" class="sidebar__post-content_meta"><i class="far fa-comments"></i>2 Comments</a>
+                                        <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
+                                    </h3>
+                                </div>
+                            </li> 
+                            
                             @endforeach
                         </ul>
-
+                        <br>
+                        {{ $related->links()}}
+                              
                     </div>
+
+                    @include('layouts.sidebar')
+
+                    
                 </div>
             </div>
         </div>

@@ -48,15 +48,11 @@
     <!-- Template styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css')}}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
 
 </head>
 <body>
   <div class="page-wrapper">
     @include('layouts.header')
-    @include('blog.flash-message')
-    @include('layouts.slide')
     @yield('content')
     @include('layouts.footer')
   </div>

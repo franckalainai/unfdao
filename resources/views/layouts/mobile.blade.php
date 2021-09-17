@@ -43,8 +43,8 @@
         <div class="cursor-follower"></div>
     </div><!-- /.search-popup__overlay -->
     <div class="search-popup__inner">
-        <form action="#" class="search-popup__form">
-            <input type="text" name="search" placeholder="Renseignez votre critère de recherche....">
+        <form action="{{ route('search') }}" class="search-popup__form">
+            <input type="text" value="{{ request('term') }}" name="term" placeholder="Renseigner votre critère de recherche....">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>
