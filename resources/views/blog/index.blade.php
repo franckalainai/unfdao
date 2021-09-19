@@ -18,7 +18,7 @@
                                     </div>
                                 </div>
                                 <div class="feature-one__icon-text-box">
-                                    <h4>Devenir <br> Volontaire</h4>
+                                    <h4>Devenir <br> Membre</h4>
                                 </div>
                             </div>
                             <p class="feature-one__icons-single-text">There are many of lorem Ipsum, but the majori
@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                                 <div class="feature-one__icon-text-box">
-                                    <h4>Levée <br> Fonds</h4>
+                                    <h4>Nos  <br> Actions</h4>
                                 </div>
                             </div>
                             <p class="feature-one__icons-single-text">There are many of lorem Ipsum, but the majori
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                                 <div class="feature-one__icon-text-box">
-                                    <h4>Faire <br> un Don</h4>
+                                    <h4>Nos  <br> valeurs</h4>
                                 </div>
                             </div>
                             <p class="feature-one__icons-single-text">There are many of lorem Ipsum, but the majori

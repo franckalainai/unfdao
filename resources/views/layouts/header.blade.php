@@ -117,7 +117,7 @@
                                     </ul><!-- /.sub-menu -->
                                 </li>
                                 <li>
-                                    <a href="#">Actualités</a>
+                                    <a href="{{url('/actualites')}}">Actualités</a>
                                 </li>
                                 <li class="dropdown">
                                     <a href="#">Nos Représentations</a>

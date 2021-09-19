@@ -15,6 +15,11 @@ Route::get('/archives', [
     'as'   => 'archives'
 ]);
 
+Route::get('/actualites', [
+    'uses' => 'BlogController@actualites',
+    'as'   => 'actualites'
+]);
+
 Route::get('/blog/{post}', [
     'uses' => 'BlogController@show',
     'as'   => 'blog.show'

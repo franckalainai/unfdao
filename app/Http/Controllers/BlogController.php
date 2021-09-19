@@ -11,7 +11,7 @@ use App\Tag;
 
 class BlogController extends Controller
 {
-    protected $limit = 3;
+    protected $limit = 10;
 
     public function index()
     {
@@ -22,6 +22,17 @@ class BlogController extends Controller
                     ->simplePaginate($this->limit);
 
         return view("blog.index", compact('posts'));
+    }
+
+    public function actualites()
+    {
+        $posts = Post::with('author', 'tags', 'category', 'comments')
+                    ->latestFirst()
+                    ->published()
+                    ->filter(request()->only(['term', 'year', 'month']))
+                    ->simplePaginate($this->limit);
+
+        return view("blog.actualites", compact('posts'))->with('actualites', Category::find(6));
     }
 
     public function archives(Post $post)
