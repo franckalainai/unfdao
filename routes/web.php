@@ -15,12 +15,32 @@ Route::get('/archives', [
     'as'   => 'archives'
 ]);
 
-Route::get('/blog/{post}', [
+Route::get('/membres', [
+    'uses' => 'BlogController@membres',
+    'as'   => 'membres'
+]);
+
+Route::get('/actualites', [
+    'uses' => 'BlogController@actualites',
+    'as'   => 'actualites'
+]);
+
+Route::get('/events', [
+    'uses' => 'BlogController@events',
+    'as'   => 'events'
+]);
+
+Route::get('/projets', [
+    'uses' => 'BlogController@projets',
+    'as'   => 'projets'
+]);
+
+Route::get('/article/{post}', [
     'uses' => 'BlogController@show',
     'as'   => 'blog.show'
 ]);
 
-Route::post('/blog/{post}/comments', [
+Route::post('/article/{post}/comments', [
     'uses' => 'CommentsController@store',
     'as'   => 'blog.comments'
 ]);

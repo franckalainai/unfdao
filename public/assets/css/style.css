@@ -2343,7 +2343,7 @@ li {
 .popular-causes {
     position: relative;
     display: block;
-    padding: 120px 0 120px;
+    padding: 20px 0 20px;
 }
 
 .popular-causes__sinlge {
@@ -4041,7 +4041,7 @@ li {
 .meet-volunteers-one {
     position: relative;
     display: block;
-    padding: 124px 0 90px;
+    padding: 30px 0 90px;
 }
 
 .meet-volunteers-one-bg {
@@ -5860,7 +5860,7 @@ li {
 .popular-causes-three {
     position: relative;
     display: block;
-    padding: 120px 0 90px;
+    padding: 50px 0 90px;
 }
 
 .campaign-page {
@@ -6380,7 +6380,7 @@ li {
 .event-page {
     position: relative;
     display: block;
-    padding: 120px 0;
+    padding: 30px 0;
 }
 
 .event-page__single {

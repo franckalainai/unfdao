@@ -11,11 +11,9 @@
                             do eiusmod tempor incididunt ut labore.</p>
                         <div class="site-footer__social">
                             <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="clr-fb"><i class="fab fa-facebook-square"></i></a>
-                            <!--
-                            <a href="#" class="clr-dri"><i class="fab fa-dribbble"></i></a>
-                            <a href="#" class="clr-ins"><i class="fab fa-instagram"></i></a>
-                            -->
+                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a href="#" class="clr-ins"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="clr-dri"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,7 @@
                                     </div>
                                 </div>
                                 <div class="feature-one__icon-text-box">
-                                    <h4>Devenir <br> Volontaire</h4>
+                                    <h4>Devenir <br> membre</h4>
                                 </div>
                             </div>
                             <p class="feature-one__icons-single-text">There are many of lorem Ipsum, but the majori
@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                                 <div class="feature-one__icon-text-box">
-                                    <h4>Levée <br> Fonds</h4>
+                                    <h4>Nos <br> actions</h4>
                                 </div>
                             </div>
                             <p class="feature-one__icons-single-text">There are many of lorem Ipsum, but the majori
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                                 <div class="feature-one__icon-text-box">
-                                    <h4>Faire <br> un Don</h4>
+                                    <h4>Nos <br> valeurs</h4>
                                 </div>
                             </div>
                             <p class="feature-one__icons-single-text">There are many of lorem Ipsum, but the majori
@@ -83,27 +83,70 @@
                         </div>
                     </div>
                 </div>
+                @foreach($discours->posts()->take(1)->get()  as $post)
                 <div class="col-xl-6 col-lg-6">
                     <div class="welcome-one__right">
                         <div class="block-title text-left">
-                            <h4>Notre Leitmotiv</h4>
-                            <h2>Notre objectif est de promouvoir la paix dans le monde</h2>
+                            <h3>{{ $post->title }}</h3>
+                            <h4>{{ $post->excerpt }}</h4>
                         </div>
-                        <p class="welcome-one__text">Lorem ipsum dolor sit amet, consectetur notted adipisicing elit
-                            sed do eiusmod tempor incididunt ut labore et simply free text dolore magna aliqua lonm
-                            andhn.</p>
-                        <ul class="welcome-one__list list-unstyled">
-                            <li><span class="icon-confirmation"></span>Nsectetur cing do not elit.</li>
-                            <li><span class="icon-confirmation"></span>Suspe ndisse suscipit sagittis in leo.</li>
-                            <li><span class="icon-confirmation"></span>Entum estibulum dignissim lipsm posuere.</li>
-                        </ul>
-                        <div class="welcome-one__campaigns">
-                            <div class="iocn">
-                                <span class="icon-donation"></span>
+                        <p class="welcome-one__text">{{ substr($post->body, 0, 999) }}...</p>
+                        <div class="text-center more-post__btn">
+                            <a href="{{ route('blog.show', $post->slug) }}" class="thm-btn">Lire la suite...</a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!--Welcome One End-->
+    <br><br>
+    <section class="give-helping">
+        <div class="container">
+            <div class="row">
+                @foreach($federation->posts()->take(1)->get()  as $post)
+                <div class="col-xl-4 col-lg-4">
+                    <div class="give-helping__first-item">
+                        <div class="block-title text-left">
+                            <!--<h4>Introductions</h4>-->
+                            <h2>{{ $post->title }}</h2>
+                        </div>
+                        <p class="give-helping__first-item__text">{{ $post->body }}</p>
+                        <!--<a href="#" class="thm-btn give-helping__first-item__btn">Learn More</a>-->
+                    </div>
+                </div>
+                @endforeach
+                <div class="col-xl-4 col-lg-4">
+                    <div class="give-helping__two-boxes">
+                        <div class="give-helping__two-boxes__img">
+                            <img src="assets/images/resources/give-helping-two-boxs-img.jpg" alt="">
+                            <div class="give-helping__two-boxes__text">
+                                <p><a href="">Habitat & Environnement <br> Energie & Eau <br>Santé & Soins <br> Éducation & Formation <br>Sécurité & Lutte contre le terrorisme</a></p>
                             </div>
-                            <div class="text">
-                                <h2 class="counter">86,700</h2>
-                                <p>Successfull Campaigns</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <div class="give-helping__cause">
+                        <div class="give-helping__cause-shape" style="background-image: url(assets/images/shapes/give-helping__cause-shape.png)"></div>
+                        <div class="give-helping__cause-title">
+                            <h3>Help Children Rise Out of Poverty</h3>
+                            <p>Dignissim cras tincidunt lobortis feugiat vivam at augue eget. Id consectetur purus
+                                orci.</p>
+                        </div>
+                        <div class="give-helping__progress">
+                            <div class="bar">
+                                <div class="bar-inner count-bar counted" data-percent="36%" style="width: 36%;">
+                                    <div class="count-text">36%</div>
+                                </div>
+                            </div>
+                            <div class="give-helping__goals">
+                                <p><span>$25,270</span> Raised</p>
+                                <p><span>$30,000</span> Goal</p>
+                            </div>
+                            <div class="give-helping__btn">
+                                <a href="campaigns.html"><i class="fas fa-heart"></i>Donate</a>
                             </div>
                         </div>
                     </div>
@@ -111,8 +154,6 @@
             </div>
         </div>
     </section>
-    <!--Welcome One End-->
-
     <!--Popular Causes Start-->
     <section class="popular-causes">
         <div class="container">
@@ -122,115 +163,31 @@
             </div>
             <div class="row">
                 <div class="col-xl-12">
+                    
                     <div class="popular-causes__carousel owl-theme owl-carousel">
                         <!--Popular Causes Single-->
+                        @foreach($actualites->posts()->take(50)->get() as $post)
+                        
                         <div class="popular-causes__sinlge">
                             <div class="popular-causes__img">
-                                <img src="assets/images/resources/popular-causes-img-1.jpg" alt="">
+                                <a href="{{ route('blog.show', $post->slug) }}">
+                                    <img src="{{ $post->image_url }}" alt="">
+                                </a>
                                 <div class="popular-causes__category">
-                                    <p>Food</p>
+                                    <p>Actualités</p>
                                 </div>
                             </div>
                             <div class="popular-causes__content">
                                 <div class="popular-causes__title">
-                                    <h3><a href="#">Raise Fund for Clean & Healthy Water</a>
+                                    <h3><a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
                                     </h3>
-                                    <p>Aliq is notm hendr erit a augue insu image pellen tes.</p>
-                                </div>
-                                <div class="popular-causes__progress">
-                                    <div class="bar">
-                                        <div class="bar-inner count-bar" data-percent="36%">
-                                            <div class="count-text">36%</div>
-                                        </div>
-                                    </div>
-                                    <div class="popular-causes__goals">
-                                        <p><span>$25,270</span> Raised</p>
-                                        <p><span>$30,000</span> Goal</p>
-                                    </div>
+                                    <p><a href="{{ route('blog.show', $post->slug) }}">{{ substr($post->excerpt, 0, 50) }}</a></p>
                                 </div>
                             </div>
                         </div>
-                        <!--Popular Causes Single-->
-                        <div class="popular-causes__sinlge">
-                            <div class="popular-causes__img">
-                                <img src="assets/images/resources/popular-causes-img-2.jpg" alt="">
-                                <div class="popular-causes__category">
-                                    <p>Education</p>
-                                </div>
-                            </div>
-                            <div class="popular-causes__content">
-                                <div class="popular-causes__title">
-                                    <h3><a href="#">Education for Poor Children</a>
-                                    </h3>
-                                    <p>Aliq is notm hendr erit a augue insu image pellen tes.</p>
-                                </div>
-                                <div class="popular-causes__progress">
-                                    <div class="bar">
-                                        <div class="bar-inner count-bar" data-percent="36%">
-                                            <div class="count-text">36%</div>
-                                        </div>
-                                    </div>
-                                    <div class="popular-causes__goals">
-                                        <p><span>$25,270</span> Raised</p>
-                                        <p><span>$30,000</span> Goal</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Popular Causes Single-->
-                        <div class="popular-causes__sinlge">
-                            <div class="popular-causes__img">
-                                <img src="assets/images/resources/popular-causes-img-3.jpg" alt="">
-                                <div class="popular-causes__category">
-                                    <p>Food</p>
-                                </div>
-                            </div>
-                            <div class="popular-causes__content">
-                                <div class="popular-causes__title">
-                                    <h3><a href="#">Promoting The Rights of Children</a>
-                                    </h3>
-                                    <p>Aliq is notm hendr erit a augue insu image pellen tes.</p>
-                                </div>
-                                <div class="popular-causes__progress">
-                                    <div class="bar">
-                                        <div class="bar-inner count-bar" data-percent="36%">
-                                            <div class="count-text">36%</div>
-                                        </div>
-                                    </div>
-                                    <div class="popular-causes__goals">
-                                        <p><span>$25,270</span> Raised</p>
-                                        <p><span>$30,000</span> Goal</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Popular Causes Single-->
-                        <div class="popular-causes__sinlge">
-                            <div class="popular-causes__img">
-                                <img src="assets/images/resources/popular-causes-img-4.jpg" alt="">
-                                <div class="popular-causes__category">
-                                    <p>Education</p>
-                                </div>
-                            </div>
-                            <div class="popular-causes__content">
-                                <div class="popular-causes__title">
-                                    <h3><a href="#">School Counseling for Children</a>
-                                    </h3>
-                                    <p>Aliq is notm hendr erit a augue insu image pellen tes.</p>
-                                </div>
-                                <div class="popular-causes__progress">
-                                    <div class="bar">
-                                        <div class="bar-inner count-bar" data-percent="36%">
-                                            <div class="count-text">36%</div>
-                                        </div>
-                                    </div>
-                                    <div class="popular-causes__goals">
-                                        <p><span>$25,270</span> Raised</p>
-                                        <p><span>$30,000</span> Goal</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
+                    
+                    @endforeach
                     </div>
                 </div>
             </div>
@@ -238,7 +195,7 @@
     </section>
     <!--Popular Causes One End-->
 
-    <!--We Are Helping Start-->
+    <!--We Are Helping Start
     <section class="we-are-helping jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
         style="background-image: url(assets/images/backgrounds/we_are_helping_bg.jpg)">
         <div class="container">
@@ -287,9 +244,11 @@
             </div>
         </div>
     </section>
+    -->
     <!--We Are Helping End-->
 
     <!--We Need Help Start-->
+    <br><br>
     <section class="we-need-help">
         <div class="we-nned-help-bg">
             <img src="assets/images/resources/we_need_help_bg.png" alt="">
@@ -365,147 +324,6 @@
     </section>
     <!--We Need Help End-->
 
-    <!--Testimonials One Start-->
-    <section class="testimonials-one">
-        <div class="testimonials-one-bg"
-            style="background-image: url(assets/images/backgrounds/testimonials_one_bg.jpg)"></div>
-        <div class="testimonials-one__container-box">
-            <div class="block-title text-center">
-                <h4>Temoignage</h4>
-                <h2>Que disent les gens sur nous !</h2>
-            </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 100, "slidesPerView": 4, "autoplay": { "delay": 5000 }, "pagination": {
-            "el": "#testimonials-one__pagination",
-            "type": "bullets",
-            "clickable": true
-          },
-          "navigation": {
-            "nextEl": ".latest_properties_next",
-            "prevEl": ".latest_properties_prev",
-            "clickable": true
-        },
-        "breakpoints": {
-            "0": {
-                "spaceBetween": 30,
-                "slidesPerView": 1
-            },
-            "425": {
-                "spaceBetween": 30,
-                "slidesPerView": 1
-            },
-            "575": {
-                "spaceBetween": 30,
-                "slidesPerView": 1
-            },
-            "767": {
-                "spaceBetween": 30,
-                "slidesPerView": 2
-            },
-            "991": {
-                "spaceBetween": 20,
-                "slidesPerView": 3
-            },
-            "1289": {
-                "spaceBetween": 30,
-                "slidesPerView": 3
-            },
-            "1440": {
-                "spaceBetween": 30,
-                "slidesPerView": 3
-            }
-        }}'>
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <!--Testimonials One Single-->
-                                <div class="testimonials-one__single">
-                                    <div class="testimonials-one__quote">
-                                        <img src="assets/images/testimonials/testimonials-one-icon-1.png" alt="">
-                                    </div>
-                                    <div class="testimonials-one__text">
-                                        <p>There are many variations of passages of lorem ipsum available but the
-                                            majority have suffered alteration in some form.</p>
-                                        <h3>- Kevin Martin</h3>
-                                    </div>
-                                    <div class="testimonials-one__author-img">
-                                        <img src="assets/images/testimonials/testimonials_one_au_img_1.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <!--Testimonials One Single-->
-                                <div class="testimonials-one__single">
-                                    <div class="testimonials-one__quote">
-                                        <img src="assets/images/testimonials/testimonials-one-icon-1.png" alt="">
-                                    </div>
-                                    <div class="testimonials-one__text">
-                                        <p>There are many variations of passages of lorem ipsum available but the
-                                            majority have suffered alteration in some form.</p>
-                                        <h3>- Jessica Brown</h3>
-                                    </div>
-                                    <div class="testimonials-one__author-img">
-                                        <img src="assets/images/testimonials/testimonials_one_au_img_2.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <!--Testimonials One Single-->
-                                <div class="testimonials-one__single">
-                                    <div class="testimonials-one__quote">
-                                        <img src="assets/images/testimonials/testimonials-one-icon-1.png" alt="">
-                                    </div>
-                                    <div class="testimonials-one__text">
-                                        <p>There are many variations of passages of lorem ipsum available but the
-                                            majority have suffered alteration in some form.</p>
-                                        <h3>- David Cooper</h3>
-                                    </div>
-                                    <div class="testimonials-one__author-img">
-                                        <img src="assets/images/testimonials/testimonials_one_au_img_3.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <!--Testimonials One Single-->
-                                <div class="testimonials-one__single">
-                                    <div class="testimonials-one__quote">
-                                        <img src="assets/images/testimonials/testimonials-one-icon-1.png" alt="">
-                                    </div>
-                                    <div class="testimonials-one__text">
-                                        <p>There are many variations of passages of lorem ipsum available but the
-                                            majority have suffered alteration in some form.</p>
-                                        <h3>- Kevin Martin</h3>
-                                    </div>
-                                    <div class="testimonials-one__author-img">
-                                        <img src="assets/images/testimonials/testimonials_one_au_img_1.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <!--Testimonials One Single-->
-                                <div class="testimonials-one__single">
-                                    <div class="testimonials-one__quote">
-                                        <img src="assets/images/testimonials/testimonials-one-icon-1.png" alt="">
-                                    </div>
-                                    <div class="testimonials-one__text">
-                                        <p>There are many variations of passages of lorem ipsum available but the
-                                            majority have suffered alteration in some form.</p>
-                                        <h3>- Jessica Brown</h3>
-                                    </div>
-                                    <div class="testimonials-one__author-img">
-                                        <img src="assets/images/testimonials/testimonials_one_au_img_2.png" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination" id="testimonials-one__pagination"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--Testimonials One End-->
-
     <!--Join One Start-->
     <section class="join-one jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
         style="background-image: url(assets/images/backgrounds/join_one_bg.jpg)">
@@ -522,7 +340,7 @@
             </div>
         </div>
     </section>
-    <!--Join One End-->
+    <!--Join One End-->    
 
     <!--Newsletter One Start-->
     <section class="newsletter-one">
@@ -563,6 +381,13 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    
+
+    
+    <section class="google-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd" class="google-map__contact" allowfullscreen=""></iframe>
     </section>
 
 @endsection

@@ -21,7 +21,11 @@ class BlogController extends Controller
                     ->filter(request()->only(['term', 'year', 'month']))
                     ->simplePaginate($this->limit);
 
-        return view("blog.index", compact('posts'));
+        return view("blog.index", compact('posts'))
+        ->with('actualites', Category::find(7))
+        ->with('discours', Category::find(11))
+        ->with('federation', Category::find(12))
+        ;
     }
 
     public function archives(Post $post)
@@ -33,6 +37,50 @@ class BlogController extends Controller
                     ->simplePaginate($this->limit);
 
         return view("blog.archives", compact('posts'));
+    }
+
+    public function membres(Post $post)
+    {
+        $posts = Post::with('author', 'tags', 'category', 'comments')
+                    ->latestFirst()
+                    ->published()
+                    ->filter(request()->only(['term', 'year', 'month']))
+                    ->simplePaginate($this->limit);
+
+        return view("blog.membres", compact('posts'))->with('membres', Category::find(6));
+    }
+
+    public function actualites(Post $post)
+    {
+        $posts = Post::with('author', 'tags', 'category', 'comments')
+                    ->latestFirst()
+                    ->published()
+                    ->filter(request()->only(['term', 'year', 'month']))
+                    ->simplePaginate($this->limit);
+
+        return view("blog.actualites", compact('posts'))->with('actualites', Category::find(7));
+    }
+
+    public function events(Post $post)
+    {
+        $posts = Post::with('author', 'tags', 'category', 'comments')
+                    ->latestFirst()
+                    ->published()
+                    ->filter(request()->only(['term', 'year', 'month']))
+                    ->simplePaginate($this->limit);
+
+        return view("blog.events", compact('posts'))->with('events', Category::find(8));
+    }
+
+    public function projets(Post $post)
+    {
+        $posts = Post::with('author', 'tags', 'category', 'comments')
+                    ->latestFirst()
+                    ->published()
+                    ->filter(request()->only(['term', 'year', 'month']))
+                    ->simplePaginate($this->limit);
+
+        return view("blog.projets", compact('posts'))->with('projets', Category::find(9));
     }
 
     public function search()
