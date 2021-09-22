@@ -74,7 +74,7 @@
                         <p class="footer-widget__support-text">Lorem ipsum dolor sit ame consect etur pisicing
                             elit sed do eiusmod tempor incididunt ut labore.</p>
                         <div class="footer-widget__support-btn">
-                            <a href="#"><i class="fas fa-heart"></i>Faire un Don</a>
+                            <a href="{{ url('/payment') }}"><i class="fas fa-heart"></i>Faire un Don</a>
                         </div>
                     </div>
                 </div>

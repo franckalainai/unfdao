@@ -31,7 +31,7 @@
                 </div>
                 <div class="main-nav__right main-nav__right-one float-right">
                     <div class="main-nav__right__btn-one">
-                        <a href="#"><i class="fas fa-heart"></i>Faire un Don</a>
+                        <a href="{{ url('/payment') }}"><i class="fas fa-heart"></i>Faire un Don</a>
                     </div>
                     <div class="main-nav__right__icon-search-box">
                         <a href="#" class="main-nav__search search-popup__toggler">
@@ -81,6 +81,7 @@
                                         <li><a href="{{ url('/membres') }}">Membres</a></li>
                                         
                                         <li><a href="#">Notre mission</a></li>
+                                        <li><a href="#">Publications</a></li>
                                         
                                     </ul>
                                 </li>
@@ -116,6 +117,7 @@
                                 <li>
                                     <a href="{{ url('/actualites') }}">Actualités</a>
                                 </li>
+                                
                                 <li class="dropdown">
                                     <a href="#">Nos Représentations</a>
                                     <ul>

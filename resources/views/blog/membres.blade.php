@@ -23,7 +23,7 @@
                             <h3>{{ $post->title }}</h3>
                         </div>
                         <div class="meet-volunteers-one__social-info">
-                                <p style="text-align: center"><a href="{{ route('blog.show', $post->slug) }}">{{ $post->excerpt }}</a></p>
+                                <p style="text-align: center"><a href="{{ route('blog.show', $post->slug) }}">{{ substr($post->excerpt, 0, 40) }}</a></p>
                             <!--
                             <div class="meet-volunteers-one__social-info-box">
                                 <a href="#"><i class="fab fa-twitter"></i></a>

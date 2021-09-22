@@ -66,7 +66,7 @@ Page Header End-->
 
                                 <div class="sidebar__post-content">
                                     <h3>
-                                        <a href="#" class="sidebar__post-content_meta"><i class="far fa-comments"></i>2 Comments</a>
+                                        <!--<a href="#" class="sidebar__post-content_meta"><i class="far fa-comments"></i>2 Comments</a>-->
                                         <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
                                     </h3>
                                 </div>

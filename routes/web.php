@@ -64,6 +64,15 @@ Route::post('subscribe',
 ['uses' => 'NewsletterController@subscribe',
 'as' => 'subscribe']);
 
+// paypal
+Route::get('/payment', 'PaymentController@index');
+
+// route for processing payment
+Route::post('paypal', 'PaymentController@payWithpaypal')->name('paypal');
+
+// route for check status of the payment
+Route::get('status', 'PaymentController@getPaymentStatus');
+
 Route::auth();
 
 Route::get('/home', 'Backend\HomeController@index');

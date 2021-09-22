@@ -88,7 +88,7 @@
                     <div class="welcome-one__right">
                         <div class="block-title text-left">
                             <h3>{{ $post->title }}</h3>
-                            <h4>{{ $post->excerpt }}</h4>
+                            <h4>{{-- $post->excerpt --}}</h4>
                         </div>
                         <p class="welcome-one__text">{{ substr($post->body, 0, 999) }}...</p>
                         <div class="text-center more-post__btn">
@@ -312,7 +312,7 @@
                                     <span class="icon-charity-1"></span>
                                 </div>
                                 <div class="text">
-                                    <h4>Donnons-nous <br> votre
+                                    <h4>Donnez-nous <br> votre
                                         Coup de main</h4>
                                 </div>
                             </div>
