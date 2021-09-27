@@ -31,7 +31,7 @@
                 </div>
                 <div class="main-nav__right main-nav__right-one float-right">
                     <div class="main-nav__right__btn-one">
-                        <a href="#"><i class="fas fa-heart"></i>Faire un Don</a>
+                        <a href="{{ url('/payment') }}"><i class="fas fa-heart"></i>Faire un Don</a>
                     </div>
                     <div class="main-nav__right__icon-search-box">
                         <a href="#" class="main-nav__search search-popup__toggler">
@@ -39,18 +39,15 @@
                         </a>
                     </div>
                 </div>
-                <!--
                 <div class="main-nav__header-one__top-right">
                     <div class="main-nav__header-one__top-social">
-                        <a href="#"><i class="fab fa-facebook-square"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                       
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-facebook-square"></i></a>
+                        <a href="#" class="clr-ins"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="clr-dri"><i class="fab fa-youtube"></i></a>&nbsp;&nbsp; &nbsp;|&nbsp; 
                         
                     </div>
                 </div>
-                -->
             </div>
             <nav class="header-navigation stricky">
                 <div class="container clearfix">
@@ -62,7 +59,7 @@
                         <div class="main-nav__main-navigation clearfix">
                             <ul class=" main-nav__navigation-box float-left">
                                 <li class="dropdown current">
-                                    <a href="#">Accueil</a>
+                                    <a href="{{ url('/') }}">Accueil</a>
                                     <!-- 
                                     <ul>
                                         <li><a href="index.html">Home 01</a></li>
@@ -80,10 +77,11 @@
                                 <li class="dropdown">
                                     <a href="#">A propos de nous</a>
                                     <ul>
-                                        <li><a href="#">Présentation</a></li>
-                                        <li><a href="#">Membres</a></li>
+                                        <li><a href="{{ url('/article/se-siriam-tieye') }}">Présentation</a></li>
+                                        <li><a href="{{ url('/membres') }}">Membres</a></li>
                                         
                                         <li><a href="#">Notre mission</a></li>
+                                        <li><a href="#">Publications</a></li>
                                         
                                     </ul>
                                 </li>
@@ -99,7 +97,7 @@
                                 </li>
                                 -->
                                 <li class="dropdown">
-                                    <a href="#">Nos Projets</a>
+                                    <a href="{{ url('/projets') }}">Nos Projets</a>
                                     <ul>
                                         <!--
                                         <li><a href="event.html">Events</a></li>
@@ -108,7 +106,7 @@
                                     </ul><!-- /.sub-menu -->
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#">Evènements</a>
+                                    <a href="{{ url('/events') }}">Evènements</a>
                                     <ul>
                                         <!--
                                         <li><a href="news.html">News</a></li>
@@ -117,8 +115,13 @@
                                     </ul><!-- /.sub-menu -->
                                 </li>
                                 <li>
+<<<<<<< HEAD
                                     <a href="{{url('/actualites')}}">Actualités</a>
+=======
+                                    <a href="{{ url('/actualites') }}">Actualités</a>
+>>>>>>> 089f58c8e215ef874f1bf94f727e4715c8ab1662
                                 </li>
+                                
                                 <li class="dropdown">
                                     <a href="#">Nos Représentations</a>
                                     <ul>

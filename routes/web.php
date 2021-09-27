@@ -15,17 +15,39 @@ Route::get('/archives', [
     'as'   => 'archives'
 ]);
 
+<<<<<<< HEAD
+=======
+Route::get('/membres', [
+    'uses' => 'BlogController@membres',
+    'as'   => 'membres'
+]);
+
+>>>>>>> 089f58c8e215ef874f1bf94f727e4715c8ab1662
 Route::get('/actualites', [
     'uses' => 'BlogController@actualites',
     'as'   => 'actualites'
 ]);
 
+<<<<<<< HEAD
 Route::get('/blog/{post}', [
+=======
+Route::get('/events', [
+    'uses' => 'BlogController@events',
+    'as'   => 'events'
+]);
+
+Route::get('/projets', [
+    'uses' => 'BlogController@projets',
+    'as'   => 'projets'
+]);
+
+Route::get('/article/{post}', [
+>>>>>>> 089f58c8e215ef874f1bf94f727e4715c8ab1662
     'uses' => 'BlogController@show',
     'as'   => 'blog.show'
 ]);
 
-Route::post('/blog/{post}/comments', [
+Route::post('/article/{post}/comments', [
     'uses' => 'CommentsController@store',
     'as'   => 'blog.comments'
 ]);
@@ -48,6 +70,15 @@ Route::get('/tag/{tag}', [
 Route::post('subscribe',
 ['uses' => 'NewsletterController@subscribe',
 'as' => 'subscribe']);
+
+// paypal
+Route::get('/payment', 'PaymentController@index');
+
+// route for processing payment
+Route::post('paypal', 'PaymentController@payWithpaypal')->name('paypal');
+
+// route for check status of the payment
+Route::get('status', 'PaymentController@getPaymentStatus');
 
 Route::auth();
 

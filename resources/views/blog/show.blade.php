@@ -32,10 +32,12 @@ Page Header End-->
                     </div>
                     <div class="news-details__content">
                         <ul class="list-unstyled news-details__meta">
+                            <!--
                             <li><a href="#"><i class="far fa-user-circle"></i> Admin</a></li>
                             <li><span>/</span></li>
                             <li><a href="#"><i class="far fa-comments"></i> 2 Comments</a>
                             </li>
+                            -->
                         </ul>
                         <h3 class="news-details__title">{{ $post->title }}</h3>
                         <p class="news-details__text-one" style="text-align: justify">{!! $post->body_html !!}</p>
@@ -45,7 +47,7 @@ Page Header End-->
             <div class="col-xl-4 col-lg-5">
                 <div class="sidebar">
                     <div class="sidebar__single sidebar__search">
-                       <h3 class="sidebar__title clr-white">Search</h3>
+                       <h3 class="sidebar__title clr-white">Recherche</h3>
                         <form action="{{ route('search') }}" class="sidebar__search-form">
                             <input type="search" value="{{ request('term') }}" name="term" placeholder="Recherche">
                             <button type="submit"><i class="icon-magnifying-glass"></i></button>
@@ -64,7 +66,7 @@ Page Header End-->
 
                                 <div class="sidebar__post-content">
                                     <h3>
-                                        <a href="#" class="sidebar__post-content_meta"><i class="far fa-comments"></i>2 Comments</a>
+                                        <!--<a href="#" class="sidebar__post-content_meta"><i class="far fa-comments"></i>2 Comments</a>-->
                                         <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
                                     </h3>
                                 </div>
